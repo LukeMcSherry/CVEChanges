@@ -8,4 +8,4 @@ while True:
     cve_list.append(cve_input)
 
 for cve in cve_list:
-      print("CVE-{}".format(cve))
+    print("CVE-{}".format(cve))
