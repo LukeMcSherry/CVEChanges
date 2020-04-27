@@ -41,7 +41,6 @@ for cve in cve_format_list:
         for item in cpe_configuration:
             cpe_configuration = cpe_configuration.replace(i, "")
 
-    print(cpe_configuration)
     cpe_configuration = cpe_configuration.split(",")
     cpe_configuration_clean = []
 
