@@ -11,7 +11,7 @@ while True:
     url_list.append(packetstorm_input)
 
 url_list = ','.join(map(str, url_list))
-strip_text = ['TITLE : Comments (0),', ',', ]
+strip_text = ['TITLE : Comments (0),', ',']
 
 for i in strip_text:
     for item in url_list:
