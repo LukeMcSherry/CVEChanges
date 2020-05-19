@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import lxml
 
 url_list = []
 print("Enter Feed (^D to End):")
@@ -11,7 +12,7 @@ while True:
     url_list.append(packetstorm_input)
 
 url_list = ','.join(map(str, url_list))
-strip_text = ['TITLE : Comments (0),', ',']
+strip_text = ['TITLE : Comments (0),','TITLE : Comments (0)', ',', '']
 
 for i in strip_text:
     for item in url_list:
@@ -19,6 +20,7 @@ for i in strip_text:
 
 url_list = url_list.split('URL :')
 del url_list[0]
+url_list = [x.strip() for x in url_list]
 
 print("\n---Packetstorm Descriptions---")
 for url in url_list:
@@ -38,4 +40,3 @@ for url in url_list:
         related_cves = "No Related CVE(s)"
 
     print(url + "\n" + packetstorm_details + "\n" + related_cves + "\n")
-
