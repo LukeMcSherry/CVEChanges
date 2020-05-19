@@ -1,3 +1,4 @@
+import re
 import requests
 from bs4 import BeautifulSoup
 import lxml
@@ -12,17 +13,18 @@ while True:
     url_list.append(packetstorm_input)
 
 url_list = ','.join(map(str, url_list))
-strip_text = ['TITLE : Comments (0),','TITLE : Comments (0)', ',', '']
+strip_text = ['TITLE : Comments (0),', 'TITLE : Comments (0)', 'TITLE : View', 'TITLE : View,', ',']
 
 for i in strip_text:
     for item in url_list:
         url_list = url_list.replace(i, "")
 
-url_list = url_list.split('URL :')
+url_list = re.split(r'URL\s*:', url_list)
 del url_list[0]
+
 url_list = [x.strip() for x in url_list]
 
-print("\n---Packetstorm Descriptions---")
+print("\n---Packetstorm Descriptions---\n")
 for url in url_list:
     URL = url
     request = requests.get(URL)
