@@ -12,6 +12,7 @@ args = parser.parse_args()
 
 with open(args.filename) as file:
     for line in file:
+        line = line.strip('\n')
         url_list.append(line)
 
 url_list = ','.join(map(str, url_list))
